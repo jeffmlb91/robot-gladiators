@@ -44,6 +44,7 @@ var fight = function (enemyName) {
 
       if (enemyHealth <= 0) {
         window.alert(enemyName + " has died!");
+        break;
       } else {
         window.alert(enemyName + " still has " + enemyHealth + " health left.");
       }
@@ -79,8 +80,10 @@ var fight = function (enemyName) {
       if (confirmSkip) {
         window.alert(playerName + " has decided to skip this fight. Goodbye!");
         //subtract money from playerMoney for skipping
-        playerMoney = playerMoney - 2;
+        playerMoney = playerMoney - 10;
         // if no (false), ask question again by running fight() again
+        console.log("playerMoney", playerMoney);
+        break;
       } else {
         //fight();
       }
@@ -92,5 +95,10 @@ var fight = function (enemyName) {
 };
 
 for (var i = 0; i < enemyNames.length; i++) {
-  fight(enemyNames[i]); // we called the fight function here
+  var pickedEnemyName = enemyNames[i];
+  enemyHealth = 50;
+  fight(pickedEnemyName);
+
+  // we called the fight function here
 }
+//fight();
